@@ -43,9 +43,9 @@ npm install react-router-dom
 
 ## 两个文件
 
-- 1 路由配置项：routeConfig。 该文件定义了此项目所有路由路径。
+- 1 路由配置项：routeConfig。 该文件定义了此项目所有路由路径。非常简单的路由处理：没有redirect，没有内嵌children
 
-- 2 RouteView：用来分解routeConfig配置文件。值得注意的是将 redirect 进行提取 并添加到后面
+- 2 RouteView：用来分解routeConfig配置文件。
 
 没有找到的路由，展示为404
 ```
