@@ -50,7 +50,15 @@ npm install react-router-dom
 没有找到的路由，展示为404
 ```
 
-### 2 css 处理
+### 2 service 和 Mock 数据
+
+设计思路：
+
+- 1 使用 node.js 原生自启一个本地服务。将 Mock 文件夹下文件,以及 \_mock.js 文件作为路由输出。（一般每个页面下均有\_mock.js 以及对应的 service.js）.
+- 2 使用 proxy 代理，将所有请求转为对自启服务的请求.
+- 3 接口值的变化，我们可以使用 Mock.js 进行值的变动，而不是一个静态值
+
+### 3 css 处理
 
 1 初始化 css 放入 index.css 中
 
