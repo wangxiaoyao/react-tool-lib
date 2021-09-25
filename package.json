@@ -2,6 +2,7 @@
   "name": "react-tool-lib",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://127.0.0.1:3001",
   "dependencies": {
     "@babel/core": "7.12.3",
     "@pmmmwh/react-refresh-webpack-plugin": "0.4.3",
@@ -70,9 +71,10 @@
     "workbox-webpack-plugin": "5.1.4"
   },
   "scripts": {
-    "start": "node scripts/start.js",
+    "start": "node scripts/start.js & node nodeServer/server.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js"
+    "test": "node scripts/test.js",
+    "server": "node nodeServer/server.js"
   },
   "eslintConfig": {
     "extends": [

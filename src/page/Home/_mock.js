@@ -1,8 +1,14 @@
-// eslint-disable-next-line import/no-anonymous-default-export
-export default {
+const homeMock = {
   "GET /api/home.json": {
     data: {
-      num: 1,
+      num: 2,
+    },
+  },
+  "POST /api/home.json": {
+    data: {
+      num: 2,
     },
   },
 };
+
+module.exports = homeMock;

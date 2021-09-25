@@ -2,18 +2,12 @@ import React, { useEffect } from "react";
 import { getHomeData } from "./service";
 
 const Home = () => {
-  const getHomeJsonFun = () => {
-    fetch("/api/home.json")
-      .then((response) => response.json())
-      .then((data) => console.log(data));
+  const getHomeDataFun = async () => {
+    const data = await getHomeData();
+    console.log("data", data);
   };
   useEffect(() => {
-    getHomeJsonFun();
-    // async function getHomeDataFun() {
-    //   const data = await getHomeData();
-    //   return data;
-    // }
-    // getHomeDataFun();
+    getHomeDataFun();
   }, []);
   return <div>home</div>;
 };
