@@ -4,6 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 import RouteView from "@src/router/RouteView";
 import routeConfig from "@src/router/routeConfig";
 import "./index.css";
+import "antd/dist/antd.css";
 import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(

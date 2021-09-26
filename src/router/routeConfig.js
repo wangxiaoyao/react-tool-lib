@@ -6,6 +6,12 @@ const routeConfig = [
     key: "home",
   },
   // 功能性
+  {
+    title: "表单表格页面",
+    path: "/formTable",
+    component: require("@page/FormTable_lib").default,
+    key: "formTable",
+  },
   // {
   //   title: "表格下载",
   //   path: "/download",
