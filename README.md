@@ -74,7 +74,46 @@ npm install react-router-dom
 
 1 初始化 css 放入 index.css 中
 
-2 使用 less, localIdentName
+2 使用 less, localIdentName。原因：由于 antd 使用了 less 所以......
+
+> 使用 less 进行 css 的解析。并配置 localIdentName 作为 class 的命名规则。 在生产环境下修改规则，生成更短的 class 名，可以提高 CSS 的压缩率。选择 base64 的 5 个字符。
+
+```
+## 安装: 特别注意less-loader高版本有问题
+npm install less less-loader@7.3.0 --save-dev
+```
+
+```
+## webpack修改：注意写在file-loader上面
+            // less
+            {
+              test: lessRegex,
+              exclude: lessModuleRegex,
+              use: getStyleLoaders(
+                 {
+                  importLoaders: 2,
+                  modules: {
+                    localIdentName: "[path][name]__[local]--[hash:base64:5]",
+                  },
+                  sourceMap: isEnvProduction && shouldUseSourceMap,
+                },
+                "less-loader"
+              ),
+              sideEffects: true,
+            },
+            {
+              test: lessModuleRegex,
+              use: getStyleLoaders(
+                {
+                  importLoaders: 2,
+                  sourceMap: isEnvProduction && shouldUseSourceMap,
+                  modules: true,
+                  getLocalIdent: getCSSModuleLocalIdent,
+                },
+                "less-loader"
+              ),
+            },
+```
 
 ## 2 lib 分支
 

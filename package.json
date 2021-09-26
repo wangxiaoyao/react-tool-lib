@@ -151,5 +151,8 @@
       "react-app"
     ]
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "less": "^4.1.1",
+    "less-loader": "^7.3.0"
+  }
 }
