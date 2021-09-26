@@ -119,4 +119,4 @@ npm install less less-loader@7.3.0 --save-dev
 
 内容：体现在 page 目录下各种库以及案例
 
-- 表单页面： 基本结构为：头部 form 表单，下面为 table 展示，有一个弹框 model
+- 表单表格页面： 基本结构为：头部 form 表单，下面为 table 展示，有一个弹框 model
