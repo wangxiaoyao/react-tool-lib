@@ -118,8 +118,3 @@ npm install less less-loader@7.3.0 --save-dev
 ## 2 lib 分支
 
 内容：体现在 page 目录下各种库以及案例
-
-```
-## 创建分支
-
-```
