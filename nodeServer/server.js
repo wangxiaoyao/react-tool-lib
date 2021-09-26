@@ -48,7 +48,13 @@ getPageMockFileByPathFun(readPageMockDir);
 const getResbyFilterReqFun = (reqKeyVal) => {
   if (reqKeyVal) {
     for (let key in mockObject) {
-      if (key === reqKeyVal.toString()) {
+      // 注意当get带参数时需要去掉？后面的部分。否则无法和mockObject匹配
+      if (
+        key ===
+        (reqKeyVal.indexOf("?") === -1
+          ? reqKeyVal.toString()
+          : reqKeyVal.toString().slice(0, reqKeyVal.indexOf("?")))
+      ) {
         return mockObject[key];
       }
     }

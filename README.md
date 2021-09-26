@@ -52,17 +52,17 @@ npm install react-router-dom
 
 ### 2 service 和 Mock 数据
 
-- 1 利用 fetch Api 接口封装了一个请求放在文件夹 util/request.js 中。
+- 1 利用 fetch Api 接口封装了一个 request 的请求。放在文件夹 util 中。方便处理 http 的请求头，以及 get 请求参数的拼接。delete 和 put 方法类似 post 就不写了。人懒~
 
-- 2 使用 node.js 原生自启一个本地服务。端口设为 3001。此服务将 Mock 文件夹下任意名称文件,以及 src/page 文件夹所有名为 "\_mock.js" 文件集合。 依据请求路径，作为路由输出。 注意：后端返回接口标准：参见\_testMock.js
+- 2 使用 node.js 原生自启一个本地服务。端口设为 3001。此服务用来将 Mock 文件夹下任意名称文件,以及 src/page 文件夹所有名为 "\_mock.js" 文件集合起来。得到一个 Mock 的对象数据集。 此对象 key 为：http 的请求方法+请求路径。 value 为对应的数据。 之后在 http 中对 requset 进行匹配，将对应数据并作为 response 输出。 注意：后端返回接口标准：参见\_testMock.js
 
-- 3 使用 proxy 代理，将所有请求转为对自启服务的请求。修改 package.json。 补上 proxy
+- 3 使用 proxy 代理，将所有请求转为对自启服务的请求。修改 package.json。 补上 proxy。 但是查看 network 的请求路径，依旧是对 3000 端口的请求
 
 ```
 "proxy": http://127.0.0.1:3001
 ```
 
-- 4 若希望接口值的变化，可以使用 Mock.js 进行值的变动处理。
+- 4 若希望接口值的变化，可以使用 Mock.js 进行值的变动处理。这里不添加了。
 
 - 5 修改 package.json：中的 script 保证前端和服务端”&“ 并行运行
 

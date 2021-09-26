@@ -1,13 +1,22 @@
 import React, { useEffect } from "react";
-import { getHomeData } from "./service";
+import { getHomeData, postHomeData } from "./service";
 
 const Home = () => {
-  const getHomeDataFun = async () => {
-    const data = await getHomeData();
-    console.log("data", data);
+  const getHomeDataFun = async (paramVal) => {
+    const data = await getHomeData(paramVal);
   };
+
+  const postHomeDataFun = async (paramVal) => {
+    const data = await postHomeData(paramVal);
+  };
+
   useEffect(() => {
-    getHomeDataFun();
+    const param = {
+      name: "逍遥",
+      age: 18,
+    };
+    getHomeDataFun(param);
+    postHomeDataFun(param);
   }, []);
   return <div>home</div>;
 };
