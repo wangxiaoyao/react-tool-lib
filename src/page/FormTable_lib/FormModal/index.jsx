@@ -17,6 +17,7 @@ const FormModal = (props) => {
         id: modalData.id,
       });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [modalData]);
 
   return (

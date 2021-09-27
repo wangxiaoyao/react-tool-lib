@@ -144,3 +144,7 @@ npm install xlsx
 ```
 
 功能：已知数据生成 Excel 表格，并下载的功能。
+
+### 3 动态表单增减
+
+功能：动态增删 Form.Item，以及提交 Form 表单的功能。

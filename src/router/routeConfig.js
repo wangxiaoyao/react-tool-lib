@@ -18,6 +18,12 @@ const routeConfig = [
     component: require("@page/Download_lib").default,
     key: "download",
   },
+  {
+    title: "动态表单",
+    path: "/dynamicForm",
+    component: require("@page/DynamicForm_lib").default,
+    key: "dynamicForm",
+  },
   // {
   //   title: "树形结构",
   //   path: "/tree",
@@ -60,12 +66,7 @@ const routeConfig = [
   //   component: require("@page/FormTable_lib").default,
   //   key: "formTable",
   // },
-  // {
-  //   title: "动态表单",
-  //   path: "/dyanamicForm",
-  //   component: require("@page/DyanamicForm_lib").default,
-  //   key: "dyanamicForm",
-  // },
+
   // {
   //   title: "表单验证",
   //   path: "/formValidate",
