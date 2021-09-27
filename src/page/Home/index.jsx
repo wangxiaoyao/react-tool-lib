@@ -5,12 +5,10 @@ import style from "./style.less";
 const Home = () => {
   const getHomeDataFun = async (paramVal) => {
     const data = await getHomeData(paramVal);
-    console.log(data);
   };
 
   const postHomeDataFun = async (paramVal) => {
     const data = await postHomeData(paramVal);
-    console.log(data);
   };
 
   useEffect(() => {
@@ -19,7 +17,7 @@ const Home = () => {
       age: 18,
     };
     getHomeDataFun(param);
-    postHomeDataFun(param);
+    // postHomeDataFun(param);
   }, []);
   return (
     <div className={style.home}>

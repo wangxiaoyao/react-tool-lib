@@ -1,16 +1,16 @@
 const homeMock = {
   "GET /api/home.json": {
     data: {
-      num: 2,
+      num: 1,
     },
     errorCode: "",
     errorLevel: "",
     message: "",
-    success: false,
+    success: true,
   },
   "POST /api/home.json": {
     data: {
-      num: 222,
+      num: 2,
     },
     errorCode: "",
     errorLevel: "",
