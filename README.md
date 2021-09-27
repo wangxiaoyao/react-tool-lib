@@ -119,14 +119,14 @@ npm install less less-loader@7.3.0 --save-dev
 
 ## lib 分支
 
+### 1 表单表格页面：
+
 ```
 ## 安装antd
 
 ## 下载antd的同时会下载出moment。下面这样引用
 import moment from "moment";
 ```
-
-### 1 表单表格页面：
 
 结构为：头部 form + 底部 table + 弹出框 modal
 
@@ -135,3 +135,12 @@ import moment from "moment";
 - 1 头部 form 点击查询，获得 table 数据。
 - 2 点击弹框：modalform 表单反选，以及 layout 的布局方式。 Modal 销毁，modalform 的清空
 - 3 table 分页功能。前端分页，后端分页
+
+### 2 下载组件
+
+```
+## 下载组件xlsx
+npm install xlsx
+```
+
+功能：已知数据生成 Excel 表格，并下载的功能。

@@ -12,12 +12,12 @@ const routeConfig = [
     component: require("@page/FormTable_lib").default,
     key: "formTable",
   },
-  // {
-  //   title: "表格下载",
-  //   path: "/download",
-  //   component: require("@page/Download_lib").default,
-  //   key: "download",
-  // },
+  {
+    title: "表格下载",
+    path: "/download",
+    component: require("@page/Download_lib").default,
+    key: "download",
+  },
   // {
   //   title: "树形结构",
   //   path: "/tree",
