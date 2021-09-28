@@ -135,6 +135,7 @@ import moment from "moment";
 - 1 头部 form 点击查询，获得 table 数据。
 - 2 点击弹框：modalform 表单反选，以及 layout 的布局方式。 Modal 销毁，modalform 的清空
 - 3 table 分页功能。前端分页，后端分页
+- 4 表单校验：输入参数值的校验：各种正则等。命名以 Validator 结尾
 
 ### 2 下载组件
 
