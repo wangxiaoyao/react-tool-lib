@@ -116,5 +116,6 @@ const wrapRequestMsg = async (urlVal, reqInfo) => {
     return data.data;
   }
 };
+console.log("来自main");
 
 export default wrapRequestMsg;
