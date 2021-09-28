@@ -4,6 +4,7 @@
   "private": true,
   "proxy": "http://127.0.0.1:3001",
   "dependencies": {
+    "@antv/g2": "^4.1.29",
     "@babel/core": "7.12.3",
     "@pmmmwh/react-refresh-webpack-plugin": "0.4.3",
     "@svgr/webpack": "5.5.0",

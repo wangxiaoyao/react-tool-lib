@@ -30,6 +30,12 @@ const routeConfig = [
     component: require("@page/PasteUpImg_lib").default,
     key: "pasteUpImg",
   },
+  {
+    title: "可视化g2图形",
+    path: "/g2",
+    component: require("@page/G2_lib").default,
+    key: "g2",
+  },
   // {
   //   title: "树形结构",
   //   path: "/tree",
@@ -48,12 +54,7 @@ const routeConfig = [
   //   component: require("@page/G2Plot_lib").default,
   //   key: "g2Plot",
   // },
-  // {
-  //   title: "可视化g2",
-  //   path: "/g2",
-  //   component: require("@page/G2_lib").default,
-  //   key: "g2",
-  // },
+
   // {
   //   title: "规则树：或且等",
   //   path: "/ruleTree",
