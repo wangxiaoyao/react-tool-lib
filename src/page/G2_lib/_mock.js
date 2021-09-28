@@ -1,4 +1,4 @@
-const MockG2 = {
+const mockG2 = {
   "GET /api/g2Base.json": {
     data: [
       { year: "1951 年", sales: 38 },
@@ -17,4 +17,4 @@ const MockG2 = {
   },
 };
 
-module.exports = MockG2;
+module.exports = mockG2;

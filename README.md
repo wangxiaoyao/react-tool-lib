@@ -23,10 +23,10 @@ npx create-react-app Myapp
 npm run eject
 
 ## 目录架构调整
-- page
-- router
-- service
-- util
+- page:功能页面和路由对应
+- router:路由配置页面
+- util:工具js页面
+- nodeServer:服务端server
 
 ## 引用路径简化
 alias: {
@@ -43,7 +43,7 @@ npm install react-router-dom
 
 ## 两个文件
 
-- 1 路由配置项：routeConfig。 该文件定义了此项目所有路由路径。非常简单的路由处理：没有redirect，没有内嵌children
+- 1 路由配置项：routeConfig。 该文件定义了此项目所有路由路径。非常简单的路由处理：没有redirect，没有内嵌children。
 
 - 2 RouteView：用来分解routeConfig配置文件。
 

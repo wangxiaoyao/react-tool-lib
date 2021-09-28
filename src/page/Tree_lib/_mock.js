@@ -1,4 +1,4 @@
-const MockTree = {
+const mockTree = {
   "GET /api/layoutTree.json": {
     data: [
       {
@@ -44,4 +44,4 @@ const MockTree = {
   },
 };
 
-module.exports = MockTree;
+module.exports = mockTree;

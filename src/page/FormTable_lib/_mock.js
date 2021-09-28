@@ -1,4 +1,4 @@
-const MockFormTable = {
+const mockFormTable = {
   "GET /api/formTable.json": {
     errorCode: "",
     errorLevel: "",
@@ -41,4 +41,4 @@ const MockFormTable = {
   },
 };
 
-module.exports = MockFormTable;
+module.exports = mockFormTable;

@@ -42,44 +42,6 @@ const routeConfig = [
     component: require("@page/Tree_lib").default,
     key: "tree",
   },
-  // {
-  //   title: "下拉刷新",
-  //   path: "/iscroll",
-  //   component: require("@page/Iscroll_lib").default,
-  //   key: "iscroll",
-  // },
-  // {
-  //   title: "可视化g2Plot",
-  //   path: "/g2Plot",
-  //   component: require("@page/G2Plot_lib").default,
-  //   key: "g2Plot",
-  // },
-
-  // {
-  //   title: "规则树：或且等",
-  //   path: "/ruleTree",
-  //   component: require("@page/RuleTree_lib").default,
-  //   key: "ruleTree",
-  // },
-  // {
-  //   title: "页面拖拽",
-  //   path: "/gridLayout",
-  //   component: require("@page/GridLayout_lib").default,
-  //   key: "gridLayout",
-  // },
-  // {
-  //   title: "表单和table",
-  //   path: "/formTable",
-  //   component: require("@page/FormTable_lib").default,
-  //   key: "formTable",
-  // },
-
-  // {
-  //   title: "表单验证",
-  //   path: "/formValidate",
-  //   component: require("@page/FormValidate_lib").default,
-  //   key: "formValidate",
-  // },
 ];
 
 export default routeConfig;

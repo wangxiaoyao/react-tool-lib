@@ -1,4 +1,4 @@
-const MockHome = {
+const mockHome = {
   "GET /api/home.json": {
     data: {
       num: 1,
@@ -19,4 +19,4 @@ const MockHome = {
   },
 };
 
-module.exports = MockHome;
+module.exports = mockHome;

@@ -1,4 +1,4 @@
-const MockPasteUpImg = {
+const mockPasteUpImg = {
   "POST /api/pasteUpImg.json": {
     errorCode: "",
     errorLevel: "",
@@ -10,4 +10,4 @@ const MockPasteUpImg = {
   },
 };
 
-module.exports = MockPasteUpImg;
+module.exports = mockPasteUpImg;

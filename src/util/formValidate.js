@@ -1,5 +1,3 @@
-// let _check = /^([1-9][\d]{0,6}|0)(\.[\d]{1,2})?$/; //限制小数点前后位数
-
 // 输入非负数金额:可以为小数，0
 export const nonNegativeValidator = () => ({
   validator(rule, value) {
