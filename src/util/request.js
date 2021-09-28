@@ -75,7 +75,12 @@ const request = (urlVal, reqInfo) => {
   if (reqInfo.method.toUpperCase() === "POST") {
     if (reqInfo.headers && Object.keys(reqInfo.headers).length !== 0) {
       // form-data
-      if (reqInfo.headers["Content-Type"] === "multipart/form-data") {
+      // 兼容Content-Type大小写问题
+      if (
+        reqInfo.headers["Content-Type"] === "multipart/form-data" ||
+        reqInfo.headers["content-type"] === "multipart/form-data" ||
+        reqInfo.headers["content-Type"] === "multipart/form-data"
+      ) {
         return fetch(urlVal, {
           headers: reqInfo.headers,
           // 注意post传的param为一个对象
