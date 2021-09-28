@@ -1,0 +1,33 @@
+.dragTree {
+  :global {
+    h1 {
+      color: green;
+    }
+    .ant-tree li span[draggable],
+    .ant-tree li span[draggable="true"] {
+      border-top: none;
+    }
+    .ant-tree-node-content-wrapper[draggable="true"] {
+      border-top: none;
+    }
+    .ant-tree .ant-tree-treenode.drag-over-gap-top > [draggable] {
+      border: none;
+    }
+  }
+}
+.layoutTree {
+  :global {
+    .ant-tree-treenode {
+      width: 100%;
+    }
+    // .ant-tree-node-content-wrapper {
+    //   width: 100%;
+    // }
+    .ant-tree-node-content-wrapper {
+      width: 100%;
+    }
+    .ant-tree-node-content-wrapper-close {
+      width: 100%;
+    }
+  }
+}

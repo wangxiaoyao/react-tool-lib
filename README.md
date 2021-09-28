@@ -171,3 +171,14 @@ npm install @antv/g2
 功能：利用 G2 渲染图表。统一由 index.jsx 分配数据。多种不同要求的图形形成多种 js 文件。 以下是注意点：
 
 - 1 当图表无法渲染，注意是否存在多个 id 命名为 container。
+
+### 6 tree
+
+```
+## nanoid 会随antd带过来
+
+- DragTree: 可以拖拽的树
+- LayoutTree : 利用renderTreeNodes重新渲染树的每一个节点
+```
+
+功能： 树的相关内容。

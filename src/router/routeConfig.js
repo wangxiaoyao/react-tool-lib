@@ -36,12 +36,12 @@ const routeConfig = [
     component: require("@page/G2_lib").default,
     key: "g2",
   },
-  // {
-  //   title: "树形结构",
-  //   path: "/tree",
-  //   component: require("@page/Tree_lib").default,
-  //   key: "tree",
-  // },
+  {
+    title: "树形结构",
+    path: "/tree",
+    component: require("@page/Tree_lib").default,
+    key: "tree",
+  },
   // {
   //   title: "下拉刷新",
   //   path: "/iscroll",
