@@ -68,15 +68,26 @@ const combineUrlParam = (urlVal, paramVal) => {
  */
 
 const request = (urlVal, reqInfo) => {
-  if (reqInfo.method === "GET" || reqInfo.method === null) {
+  if (reqInfo.method.toUpperCase() === "GET" || reqInfo.method === null) {
     return fetch(combineUrlParam(urlVal, reqInfo.data), {
       method: "GET",
     }).then((res) => res.json());
   }
-  if (reqInfo.method === "POST") {
+  if (reqInfo.method.toUpperCase() === "POST") {
+    if (reqInfo.headers && Object.keys(reqInfo.headers).length !== 0) {
+      // form-data
+      if (reqInfo.headers["Content-Type"] === "multipart/form-data") {
+        return fetch(urlVal, {
+          headers: reqInfo.headers,
+          // 注意post传的param为一个对象
+          body: reqInfo.data,
+          method: "POST",
+        }).then((res) => res.json());
+      }
+    }
     return fetch(urlVal, {
       headers: {
-        "content-type": "application/json; charset=utf-8",
+        "Content-Type": "application/json; charset=utf-8",
       },
       // 既然头部信息告知传的是Json，就把对象转一下
       body: JSON.stringify(reqInfo.data),

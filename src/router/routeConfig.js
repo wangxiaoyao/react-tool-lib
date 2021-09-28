@@ -24,6 +24,12 @@ const routeConfig = [
     component: require("@page/DynamicForm_lib").default,
     key: "dynamicForm",
   },
+  {
+    title: "粘贴图片上传",
+    path: "/pasteUpImg",
+    component: require("@page/PasteUpImg_lib").default,
+    key: "pasteUpImg",
+  },
   // {
   //   title: "树形结构",
   //   path: "/tree",
@@ -72,18 +78,6 @@ const routeConfig = [
   //   path: "/formValidate",
   //   component: require("@page/FormValidate_lib").default,
   //   key: "formValidate",
-  // },
-  // {
-  //   title: "图片上传",
-  //   path: "/uploadImg",
-  //   component: require("@page/UploadImg_lib").default,
-  //   key: "uploadImg",
-  // },
-  // {
-  //   title: "图片上传1",
-  //   path: "/g2123",
-  //   component: require("@page/G2test").default,
-  //   key: "g2123",
   // },
 ];
 
