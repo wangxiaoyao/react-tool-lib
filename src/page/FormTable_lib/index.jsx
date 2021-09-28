@@ -69,7 +69,6 @@ const FormTable_lib = () => {
     };
     setHeadFormVal(params);
     getFormTableDataFun(params);
-    console.log("moment", moment().format("dddd"));
   }, []);
 
   return (
