@@ -38,9 +38,15 @@ const routeConfig = [
   },
   {
     title: "粘贴图片上传",
-    path: "/pasteUpImg",
-    component: require("@page/PasteUpImg_lib").default,
-    key: "pasteUpImg",
+    path: "/upPasteImg",
+    component: require("@page/UpPasteImg_lib").default,
+    key: "upPasteImg",
+  },
+  {
+    title: "上传文件",
+    path: "/upFile",
+    component: require("@page/UpFile_lib").default,
+    key: "upFile",
   },
   {
     title: "可视化g2图形",

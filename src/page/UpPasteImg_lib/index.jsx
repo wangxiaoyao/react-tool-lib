@@ -86,7 +86,6 @@ const PasteUpImg_lib = () => {
 
   return (
     <div>
-      <h1> </h1>
       <Upload
         name="avatar"
         listType="picture-card"
