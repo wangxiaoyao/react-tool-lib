@@ -1,11 +1,14 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { getHomeData, postHomeData } from "./service";
 import style from "./style.less";
 
 const Home = () => {
   const history = useHistory();
+  //
+  const domRef = useRef(1);
+  console.log("domRef", domRef);
 
   const getHomeDataFun = async (paramVal) => {
     const data = await getHomeData(paramVal);
@@ -33,6 +36,10 @@ const Home = () => {
     });
   };
 
+  const handleHome = () => {
+    console.log(domRef.current);
+  };
+
   useEffect(() => {
     const param = {
       name: "逍遥",
@@ -44,7 +51,9 @@ const Home = () => {
   }, []);
   return (
     <div className={style.home}>
-      <div>home</div>
+      <div ref={domRef} onClick={handleHome}>
+        home: 点击测试ref
+      </div>
       <Link
         to={{
           pathname: "/home/page1",
