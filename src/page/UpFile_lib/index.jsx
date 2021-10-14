@@ -1,16 +1,13 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState } from "react";
 import { Upload, Button, message } from "antd";
-import Icon from "@ant-design/icons";
 import moment from "moment";
 
 const UpFile_lib = () => {
-  const [intellectFileList, setIntellectFileList] = useState([]);
-
-  // 算法文件
-  const propsIntellectUpload = {
+  const [fileListVal, setFileListVal] = useState([]);
+  const propsUpload = {
     name: "file",
-    action: "/liquidity/monthlyPlan/uploadIntellectFile.json",
+    action: "/api/upFile.json",
     accept: ".xls,.xlsx,.csv",
     data: {
       month: moment().format("YYYYMM"),
@@ -26,6 +23,7 @@ const UpFile_lib = () => {
       window.location.href = info.url;
     },
     onChange(info) {
+      console.log("info", info);
       if (info.file.status === "removed") {
         message.success(`${info.file.name} file removed successfully`);
       }
@@ -39,16 +37,14 @@ const UpFile_lib = () => {
         }
       }
       // 关键点：change时候：fileList的文件状态一直是uploading。需要内部进行set
-      setIntellectFileList([...info.fileList]);
+      setFileListVal([...info.fileList]);
     },
   };
 
   return (
     <div>
-      <Upload {...propsIntellectUpload} fileList={intellectFileList}>
-        <Button>
-          <Icon type="upload" /> 上传文件
-        </Button>
+      <Upload {...propsUpload} fileList={fileListVal}>
+        <Button>上传文件</Button>
       </Upload>
     </div>
   );
