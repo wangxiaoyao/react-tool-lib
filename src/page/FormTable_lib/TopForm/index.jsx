@@ -16,9 +16,12 @@ const TopForm = (props) => {
   };
 
   useEffect(() => {
+    // 若设置的对象key为变量。则需要加上[]包裹转为string类型
+    const flag = "flagVal";
     form.setFieldsValue({
       // 由于Input 输入都是 String 类型。所以回显的时候，必须将其转为String类型。
       executeTime: moment(moment().format("YYYY-MM"), "YYYY-MM"),
+      [`${flag}time`]: 1,
     });
   }, [form]);
 
