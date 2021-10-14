@@ -146,7 +146,16 @@ import moment from "moment";
 npm install xlsx
 ```
 
-功能：已知数据生成 Excel 表格，并下载的功能。
+功能：
+
+1 已知数据生成 Excel 表格，并下载的功能。
+
+2 一般下载文件：可以使用download.js 或者 a标签
+
+```
+## linkVal 为后端提供的地址。注意文件名也由后端给，不要在a标签内使用download属性。
+<a href={linkVal}>下载模板</a>
+```
 
 ### 3 动态表单增减
 

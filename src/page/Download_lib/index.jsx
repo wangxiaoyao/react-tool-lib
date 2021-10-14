@@ -20,9 +20,6 @@ const Download_lib = () => {
     <div>
       <h1>已知数据生成Excel表格，并下载的功能</h1>
       <button onClick={handleDownLoad}>点击下载</button>
-      <div>
-        一般性下载文件可以使用a标签。由后端给href的地址。注意文件名也由后端给，不要使用download属性
-      </div>
     </div>
   );
 };
