@@ -5,7 +5,9 @@ const FormModal = (props) => {
   const { formModal, modalData } = props;
   const { Option } = Select;
   const layout = {
+    // 控制左右移动
     labelCol: { span: 4 },
+    // 控制长度
     wrapperCol: { span: 16 },
   };
 
