@@ -10,6 +10,8 @@ const Home = () => {
   const getHomeDataFun = async (paramVal) => {
     const data = await getHomeData(paramVal);
     // 健壮性：对后端传入的值进行检测。防止前端页面崩溃。
+    // 1 可以利用 || 防止k是undefined的情况：  let value = k || ''
+    // 2 map没有数据会报错。 (arrVal || []).map()。
     if (data && Object.keys(data).length !== 0) {
       console.log("getHomeData", data);
     }
