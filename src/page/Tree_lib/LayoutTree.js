@@ -31,16 +31,16 @@ export default function LayoutTree(props) {
         if (item.children) {
           // console.log('levelVal', levelVal);
           item.children.push({
-            // isEditable: true,
-            value: "新增分类",
+            isEditable: true,
+            // value: "新增分类",
             level: levelVal + 1,
             key: `${nanoid()}N`, // 这个 key 应该是唯一的
           });
         } else {
           item.children = [];
           item.children.push({
-            // isEditable: true,
-            value: "新增分类",
+            isEditable: true,
+            // value: "新增分类",
             level: levelVal + 1,
             key: `${nanoid()}N`,
           });
@@ -53,8 +53,8 @@ export default function LayoutTree(props) {
 
   const onAdd = (key, item) => {
     // 看一下是否符合层级深度 当前的层级
-    // console.log('item', item);
     // 没有找到，则展开新的子项
+    console.log("??", item);
     if (expandedKeys.indexOf(key) === -1) {
       expandedKeys.push(key);
     }
@@ -104,17 +104,17 @@ export default function LayoutTree(props) {
   };
 
   // 通过key找到businessTreeData 中的parentCode 找到上一级的businessCode
-  const findPar = (target, treeDataVal, parItem, kval) => {
-    treeDataVal.map((item) => {
-      if (item.key === target) {
-        kval.push(parItem);
-      }
-      if (item.children && item.children.length !== 0) {
-        findPar(target, item.children, item, kval);
-      }
-      return null;
-    });
-  };
+  // const findPar = (target, treeDataVal, parItem, kval) => {
+  //   treeDataVal.map((item) => {
+  //     if (item.key === target) {
+  //       kval.push(parItem);
+  //     }
+  //     if (item.children && item.children.length !== 0) {
+  //       findPar(target, item.children, item, kval);
+  //     }
+  //     return null;
+  //   });
+  // };
 
   // 保存
   const saveNode = (key, dataVal) =>
@@ -138,21 +138,21 @@ export default function LayoutTree(props) {
     }
   };
 
-  // 关闭
-  const closeNode = (key, defaultValue, dataVal) =>
-    dataVal.forEach((item) => {
-      item.isEditable = false;
-      if (item.key === key) {
-        item.value = defaultValue;
-      }
-      if (item.children) {
-        closeNode(key, defaultValue, item.children);
-      }
-    });
-  const onClose = (key, defaultValue) => {
-    closeNode(key, defaultValue, treeData);
-    setData(treeData);
-  };
+  // 关闭： 删除该行
+  // const closeNode = (key, defaultValue, dataVal) =>
+  //   dataVal.forEach((item) => {
+  //     item.isEditable = false;
+  //     if (item.key === key) {
+  //       item.value = defaultValue;
+  //     }
+  //     if (item.children) {
+  //       closeNode(key, defaultValue, item.children);
+  //     }
+  //   });
+  // const onClose = (key, defaultValue) => {
+  //   closeNode(key, defaultValue, treeData);
+  //   setData(treeData);
+  // };
 
   // 删除
   const deleteNode = (key, dataVal) =>
@@ -193,11 +193,12 @@ export default function LayoutTree(props) {
             <input
               value={item.value || ""}
               onChange={(e) => onChange(e, item.key)}
+              placeholder="请填写新增分类的名称"
             />
 
             <CloseOutlined
               style={{ marginLeft: 10 }}
-              onClick={() => onClose(item.key, item.defaultValue)}
+              onClick={() => onDelete(item.key, item.defaultValue)}
             />
 
             <CheckOutlined

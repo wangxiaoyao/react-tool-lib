@@ -31,6 +31,7 @@ const Tree_lib = (props) => {
     }
   };
 
+  // id 就是key
   const convertData = (dataVal) => {
     const newData = dataVal.map((item) => {
       if (item.children && item.children.length !== 0) {
