@@ -1,5 +1,6 @@
 import React from "react";
 import { Form, Select, Tooltip } from "antd";
+import style from "./style.less";
 
 // 悬浮框内有form的select情况：
 // 1 select看不见下拉内容：tooltip的z-index值高达1070
@@ -29,6 +30,7 @@ const TooltipForm = (props) => {
         position: "absolute",
         zIndex: "1",
       }}
+      className={style.toolTipSty}
     >
       <Tooltip
         color="#FFFFFF"
