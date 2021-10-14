@@ -6,27 +6,64 @@ const G2Base = (props) => {
   const { idProps, graphData } = props;
   const [chartVal, setChartVal] = useState("");
 
-  useEffect(() => {
-    const chart = new Chart({
+  const initChart = (chartDataVal) => {
+    // eslint-disable-next-line no-underscore-dangle
+    const _chart = new Chart({
       container: idProps,
       height: 500,
       width: 600,
     });
 
-    chart.data(graphData);
-    chart.scale("sales", {
+    // _chart.legend({
+    //   position: "top-center", // 设置图例的显示位置
+    //   itemGap: 20, // 图例项之间的间距
+    // });
+    _chart.data(chartDataVal);
+    // 度量优化：使其数值不从0开始
+    _chart.scale("sales", {
       nice: true,
     });
-
-    chart.tooltip({
-      showMarkers: false,
+    // 另一种写法
+    // _chart.data(chartDataVal, {
+    //   year: {
+    //     alias: "时间",
+    //     // type: "time",
+    //     // tickCount: 5,
+    //     // mask: "DD",
+    //   },
+    //   sales: {
+    //     alias: "金额",
+    //     formatter: (val) => `${val}亿元`,
+    //     // min: 0,
+    //   },
+    // });
+    _chart.tooltip({
+      itemTpl: "<ul><li>{flag}:  {amount}</li> </ul>",
     });
-    chart.interaction("active-region");
+    _chart
+      .line()
+      .position("year*sales")
+      .shape("smooth")
+      .color("rgb(94,113,145)")
+      .tooltip("year*sales", (year, sales) => ({
+        year,
+        amount: `${sales}亿元`,
+        flag: "tooltip修改方式",
+      }));
 
-    chart.interval().position("year*sales");
+    _chart.render();
+    // 监听tooltip悬浮时候的函数
+    _chart.on("tooltip:change", (ev) => {
+      console.log("ev", ev);
+      // ev.items.forEach((item) => {
+      //   item.title = item.point._origin.time;
+      // });
+    });
+    setChartVal(_chart);
+  };
 
-    chart.render();
-    setChartVal(chart);
+  useEffect(() => {
+    initChart(graphData);
   }, []);
 
   useEffect(() => {
