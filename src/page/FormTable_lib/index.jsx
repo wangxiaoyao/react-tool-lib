@@ -5,6 +5,7 @@ import moment from "moment";
 import TopForm from "./TopForm";
 import ShowTable from "./ShowTable";
 import FormModal from "./FormModal";
+import TooltipForm from "./TooltipForm";
 
 import { getFormTableData, getFormModalData } from "./service";
 import styles from "./style.less";
@@ -76,6 +77,7 @@ const FormTable_lib = () => {
       <div className={styles.title}>
         <p>完整的一个form，table，modal页面。</p>
       </div>
+
       <TopForm
         form={form}
         handleSubmit={handleSubmit}
@@ -97,6 +99,11 @@ const FormTable_lib = () => {
       >
         <FormModal formModal={formModal} modalData={modalData} />
       </Modal>
+
+      <div>
+        <p>一个悬浮小组件：</p>
+        <TooltipForm />
+      </div>
     </div>
   );
 };
