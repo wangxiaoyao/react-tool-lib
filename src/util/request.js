@@ -1,4 +1,4 @@
-// import MessageNa from "@src/component/MessageNa";
+import MessageNa from "@src/component/MessageNa";
 const codeMessage = {
   200: "服务器成功返回请求的数据。",
   201: "新建或修改数据成功。",
@@ -110,13 +110,14 @@ const request = (urlVal, reqInfo) => {
 const wrapRequestMsg = async (urlVal, reqInfo) => {
   const data = await request(urlVal, reqInfo);
   if (!data) {
-    // window.alert("没有返回任何数据");
+    MessageNa("没有返回任何数据");
   }
   if (data && !data.success) {
     // window.alert(`success为false,错误信息为：${data.message}`);
+    MessageNa(`success为false,错误信息为：${data.message}`, 5000);
   }
   if (data && data.success) {
-    // window.alert("返回数据成功");
+    MessageNa("返回数据成功", 3000);
     // 注意返回的是data里面具体的数据
     return data.data;
   }
