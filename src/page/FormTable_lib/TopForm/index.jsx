@@ -3,6 +3,10 @@ import { Form, DatePicker, Button, Input } from "antd";
 import moment from "moment";
 import { nonNegativeValidator } from "@src/util/formValidate";
 
+// moment(momentObj).format("YYYY-MM-DD HH:mm:ss")： 转为字符串
+// moment(momentObj).valueOf()： 转为时间戳
+// moment("val", 'YYYY-MM') : 字符串转为moment对象
+
 const TopForm = (props) => {
   const { form, handleSubmit, handleButtonOpenModal } = props;
 
@@ -15,12 +19,17 @@ const TopForm = (props) => {
     handleButtonOpenModal();
   };
 
+  // 日期限制区间: .endOf("day") 锁定日期     .endOf("months") 锁定月份
+  const disabledDateVal = (current) =>
+    current < moment().subtract(0, "months").endOf("day") ||
+    current > moment().add(1, "months").endOf("months");
+
   useEffect(() => {
     // 若设置的对象key为变量。则需要加上[]包裹转为string类型
     const flag = "flagVal";
     form.setFieldsValue({
       // 由于Input 输入都是 String 类型。所以回显的时候，必须将其转为String类型。
-      executeTime: moment(moment().format("YYYY-MM"), "YYYY-MM"),
+      executeTime: moment(moment().format("YYYY-MM-DD"), "YYYY-MM-DD"),
       [`${flag}time`]: 1,
     });
   }, [form]);
@@ -29,7 +38,10 @@ const TopForm = (props) => {
     <div>
       <Form form={form}>
         <Form.Item name="executeTime" label="执行月份">
-          <DatePicker picker="month" style={{ width: "220px" }} />
+          <DatePicker
+            style={{ width: "220px" }}
+            disabledDate={disabledDateVal}
+          />
         </Form.Item>
         <Form.Item
           name="formValidate"
