@@ -1,5 +1,25 @@
-.messageNa {
-  position: absolute;
-  top: 10px;
-  left: 50%;
+.newWrapDiv {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  line-height: 1.5715;
+  position: fixed;
+  top: 15%;
+  // left: 0;
+  // left: 50%;
+  // transform: translate(-50%, -50%);
+  z-index: 1010;
+  width: 100%;
+  pointer-events: none;
+
+  .newDiv {
+    text-align: center;
+    margin-bottom: 10px;
+    .newInnerDiv {
+      display: inline-block;
+      padding: 13px;
+      box-shadow: 4px 3px 13px rgb(221 221 221);
+    }
+  }
 }
