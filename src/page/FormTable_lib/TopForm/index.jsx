@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Form, DatePicker, Button, Input } from "antd";
+import { Form, DatePicker, Button, Input, TimePicker } from "antd";
 import moment from "moment";
 import { nonNegativeValidator } from "@src/util/formValidate";
 
@@ -25,12 +25,15 @@ const TopForm = (props) => {
     current > moment().add(1, "months").endOf("months");
 
   useEffect(() => {
-    // 若设置的对象key为变量。则需要加上[]包裹转为string类型
+    // 若设置的对象key为变量。则需要加上[]包裹转为string类型。有横杠的直接加双引号
     const flag = "flagVal";
     form.setFieldsValue({
       // 由于Input 输入都是 String 类型。所以回显的时候，必须将其转为String类型。
       executeTime: moment(moment().format("YYYY-MM-DD"), "YYYY-MM-DD"),
       [`${flag}time`]: 1,
+      // 一定注意时间转换使用HH:mm:ss  。 大写就出错了
+      "time-Picker": moment(moment().format("HH:mm:ss"), "HH:mm:ss"),
+      // moment(formVal.allocateTime).format('HH:mm:ss')
     });
   }, [form]);
 
@@ -43,6 +46,11 @@ const TopForm = (props) => {
             disabledDate={disabledDateVal}
           />
         </Form.Item>
+
+        <Form.Item name="time-Picker" label="选择时间">
+          <TimePicker style={{ width: "220px" }} />
+        </Form.Item>
+
         <Form.Item
           name="formValidate"
           label="表单正则校验"

@@ -49,6 +49,7 @@ const ShowTable = ({ showTableData, getFormTableDataFun, headFormVal }) => {
     },
     {
       title: "操作",
+      fixed: "right",
       dataIndex: "result",
       key: "result",
       render: (_, record) => (

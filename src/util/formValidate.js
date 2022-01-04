@@ -57,3 +57,21 @@ export const ChinaSymbolValidator = () => ({
     return Promise.reject(new Error("不能输入中文符号"));
   },
 });
+
+// 保留四位小数的检测
+export const fourthDecimalValid = () => ({
+  validator(rule, value) {
+    // console.log('value', value);
+    const reg = RegExp(/^([1-9][\d]*|0)(\.[\d]+)?$/);
+    if (Number(value) > 1000000) {
+      return Promise.reject(new Error("数目过大"));
+    }
+    if (value.indexOf(".") !== -1 && value.length - value.indexOf(".") > 5) {
+      return Promise.reject(new Error("小数点后保留四位"));
+    }
+    if (typeof value === "string" && value.match(reg)) {
+      return Promise.resolve();
+    }
+    return Promise.reject(new Error("请输入正数"));
+  },
+});
