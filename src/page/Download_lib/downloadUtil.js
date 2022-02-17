@@ -62,31 +62,15 @@ function workbook2blob(workbook) {
 }
 
 /**
- * 将数据补充到表结构中。包括提取children子类数据.形成二维数组
- * @param {obj} sheetData
- * @param {obj} data
- * @returns
- */
-
-function getTableData(excelStruct, data) {
-  data.forEach((item) => {
-    // 可以防止Excell转为科学计数法
-    const arrItem = [item.name, `${item.num1}`, `${item.num2}`];
-    // 在基本表结构基础上补充数据
-    excelStruct.push(arrItem);
-    if (item.children) {
-      getTableData(excelStruct, item.children);
-    }
-  });
-  return excelStruct;
-}
-/**
  * 表格下载
  * @param {obj} excelConfig
  */
-export const downloadDataToExcel = (excelConfig) => {
-  const resolveData = getTableData(excelConfig.excelStruct, excelConfig.data);
-  // 1 将二维数组转为sheet
+export const downloadDataToExcel = (excelConfig, dealDownTableData) => {
+  const resolveData = dealDownTableData(
+    excelConfig.excelStruct,
+    excelConfig.data
+  );
+  // 1 将二维数组转为sheet: 注意XLSX的 版本是17
   const sheet = XLSX.utils.aoa_to_sheet(resolveData);
   // 合并单元格: s: 表示第一行，第二列   e 表示第一行，第五列。 这个区间进行合并。
   sheet["!merges"] = [{ s: { r: 0, c: 1 }, e: { r: 0, c: 4 } }];
