@@ -25,15 +25,21 @@ const TopForm = (props) => {
     current > moment().add(1, "months").endOf("months");
 
   useEffect(() => {
-    // 若设置的对象key为变量。则需要加上[]包裹转为string类型。有横杠的直接加双引号
+    // 1 对于area中，对后端数据字符串中的\n进行替换。才能回显出换行效果。
+    // const remindDescVal = data.remindDesc.replace(/\\n/gm, "<br/>");
+
+    // 2 若设置的对象key为变量。则需要加上[]包裹转为string类型。
     const flag = "flagVal";
+
     form.setFieldsValue({
-      // 由于Input 输入都是 String 类型。所以回显的时候，必须将其转为String类型。
+      // 由于Input 输入都是 String 类型。所以回显的时候，必须将其转为String类型。而不能是其他类型
       executeTime: moment(moment().format("YYYY-MM-DD"), "YYYY-MM-DD"),
+
       [`${flag}time`]: 1,
       // 一定注意时间转换使用HH:mm:ss  。 大写就出错了
       "time-Picker": moment(moment().format("HH:mm:ss"), "HH:mm:ss"),
-      // moment(formVal.allocateTime).format('HH:mm:ss')
+
+      // areaInput: remindDescVal,
     });
   }, [form]);
 

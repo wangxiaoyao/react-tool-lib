@@ -15,7 +15,7 @@ const DynamicForm_lib = () => {
   };
   // 减
   const handleDelItem = (item) => {
-    // 清空表单
+    // 清空表单，对象中的key为变量的时候，使用{}
     form.setFieldsValue({
       [`name${item}`]: "",
     });
