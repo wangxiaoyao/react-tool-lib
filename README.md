@@ -1,5 +1,17 @@
 # react-tool-lib
 
+## 使用说明：
+
+```
+## 安装库
+npm i
+
+## 启动
+npm start
+```
+
+## 库的设计说明
+
 依据 create-react-app 创建一个 react 库，积累开发过程中常见库/案例的使用
 
 两个分支：
@@ -150,7 +162,7 @@ npm install xlsx
 
 1 已知数据生成 Excel 表格，并下载的功能。
 
-2 一般下载文件：可以使用download.js 或者 a标签
+2 一般下载文件：可以使用 download.js 或者 a 标签
 
 ```
 ## linkVal 为后端提供的地址。注意文件名也由后端给，不要在a标签内使用download属性。
@@ -172,7 +184,7 @@ npm install xlsx
 
 ### 5 可控文件上传
 
-同上一样使用的是antd Upload组件。进行文件可控的上传，以及文件的点击下载
+同上一样使用的是 antd Upload 组件。进行文件可控的上传，以及文件的点击下载
 
 ### 5 G2 图形库
 

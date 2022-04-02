@@ -20,9 +20,51 @@ const TopForm = (props) => {
   };
 
   // 日期限制区间: .endOf("day") 锁定日期     .endOf("months") 锁定月份
-  const disabledDateVal = (current) =>
+  const disabledDateValM = (current) =>
     current < moment().subtract(0, "months").endOf("day") ||
     current > moment().add(1, "months").endOf("months");
+
+  // 日期为：时间范围：当前的5分钟之后
+  const disabledDateVal = (current) =>
+    current < moment().subtract(1, "day").endOf("day");
+
+  const disabledHours = () => {
+    const hours = [];
+    for (let i = 0; i < moment().hour(); i++) {
+      hours.push(i);
+    }
+    return hours;
+  };
+
+  const disabledMinutes = (currentDate) => {
+    const currentMinute = moment().minute();
+    const currentHour = moment(currentDate).hour();
+    const minutes = [];
+    if (currentHour === moment().hour()) {
+      // 5分钟后
+      for (let i = 0; i < currentMinute + 5; i++) {
+        minutes.push(i);
+      }
+    }
+    return minutes;
+  };
+
+  const disabledTimeVal = (dateTime) => {
+    // console.log('dateTime', dateTime);
+    if (moment(dateTime).isBefore(moment(), "day")) {
+      return {
+        disabledHours: () => [],
+        disabledMinutes: () => [],
+      };
+    }
+
+    if (moment(dateTime).isSame(moment(), "day")) {
+      return {
+        disabledHours: () => disabledHours(dateTime),
+        disabledMinutes: () => disabledMinutes(dateTime),
+      };
+    }
+  };
 
   useEffect(() => {
     // 1 对于area中，对后端数据字符串中的\n进行替换。才能回显出换行效果。
@@ -49,7 +91,17 @@ const TopForm = (props) => {
         <Form.Item name="executeTime" label="执行月份">
           <DatePicker
             style={{ width: "220px" }}
+            disabledDate={disabledDateValM}
+          />
+        </Form.Item>
+
+        <Form.Item name="executeTim1" label="限制当前时间后">
+          <DatePicker
+            showTime
+            showNow={false}
+            style={{ width: "220px" }}
             disabledDate={disabledDateVal}
+            disabledTime={disabledTimeVal}
           />
         </Form.Item>
 
